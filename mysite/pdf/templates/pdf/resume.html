@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="pdf\templates\pdf\styling.css"> -->
+    <title>Document</title>
+    <style>       
+        .section{
+            margin-left: 3%;
+        }
+        .section-heading{
+            font-weight: 700 ;
+            font-size: 18px;
+        }
+        .bttn{
+            text-align: center;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div style="margin:2%">
+        <h1 style="text-align: center;"><b>{{user_profile.name}}</b></h1>
+        <p style="text-align: center;"><i class="fa fa-envelope"> {{user_profile.email}} </i> | <i class="fa fa-phone"> {{user_profile.phone}} </i> </p>
+        
+    </div>  
+    <hr/>
+    <div class="section">
+        <p class="section-heading">SUMMARY</p>
+        <p>{{user_profile.summary}}</p>
+    </div>
+    <hr/>
+    <div class="section">
+        <p class="section-heading">WORK EXPERIENCE</p>
+        <p>{{user_profile.previous_work}}</p>
+    </div>
+    <hr/>
+    <div class="section">
+        <p class="section-heading">EDUCATION</p>
+        <p>{{user_profile.degree}}</p>
+
+        <ul>
+            <li>{{user_profile.school}}</li>
+            <li>{{user_profile.university}}</li>
+        </ul>
+    </div>
+    <hr/>
+    <div class="section">
+        <p class="section-heading">SKILLS</p>
+        <p>{{user_profile.skills}}</p>
+    </div>
+    <br/>
+    <br/>
+    {% if not is_pdf %}
+    <div class="bttn">
+    <a href="{% url 'download_pdf' user_profile.id %}" class="btn btn-primary">Download PDF</a>
+    </div>
+    {% endif %}
+
+
+</body>
+</html>

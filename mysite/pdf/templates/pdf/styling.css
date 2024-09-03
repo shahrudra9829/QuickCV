@@ -1,0 +1,25 @@
+.my-link{
+    text-align: center;
+}
+.txt{
+    /* font-style: oblique; */
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+.heading{
+    background-image: url("bgimg.jpg");
+    background-color: rgb(150, 238, 245);
+    height:200px;
+    
+}
+h1 {
+    margin: 12%;
+}
+.section{
+    margin-left: 3%;
+}
+.section-heading{
+    font-weight: 700 ;
+    font-size: 18px;
+}

@@ -3,6 +3,7 @@ from .models import Profile
 from django.template import loader
 import pdfkit
 from django.http import HttpResponse
+from .form import *
 
 # Create your views here.
 
@@ -10,21 +11,13 @@ def go(request):
     return render(request,'pdf/home.html')
 
 def accept(request):
+    form = Details()
     if request.method=="POST":
-        name=request.POST.get("name","")
-        email=request.POST.get("email","")
-        phone=request.POST.get("phone","")
-        summary=request.POST.get("summary","")
-        degree=request.POST.get("degree","")
-        school=request.POST.get("school","")
-        university=request.POST.get("university","")
-        previous_work=request.POST.get("previous_work","")
-        skills=request.POST.get("skills","")
-
-        profile = Profile(name=name,email=email,phone=phone,summary=summary,degree=degree,school=school,university=university,previous_work=previous_work,skills=skills)
-        profile.save()
-        return redirect('resume', profile_id=profile.id)
-    return render(request,'pdf/accept.html')
+        form = Details(request.POST)
+        if form.is_valid():
+            form_obj=form.save() 
+        return redirect('resume', profile_id=form_obj.id)
+    return render(request,'pdf/accept.html',{"form":form})
 
 def resume(request,profile_id):
     user_profile=get_object_or_404(Profile,id=profile_id)

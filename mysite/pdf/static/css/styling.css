@@ -1,0 +1,33 @@
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f4f7f9;
+    overflow-x: hidden;
+}
+
+h1 {
+    padding-top: 4%;
+    font-size:70px;
+    color: azure;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder; 
+    text-shadow: 4px 5px 7px rgba(0, 0, 0, 0.5);
+}
+
+.formname{
+    background: linear-gradient(to right, #667eea, #764ba2);
+    font-size:40px;
+    height: 100px;
+    color: azure;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder; 
+    text-shadow: 4px 5px 7px rgba(0, 0, 0, 0.5);
+    padding-left: 3%;
+    padding-top: 20px;
+    border-radius: 20px;
+    margin:10px;
+    text-align: center;
+    
+}
+

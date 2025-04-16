@@ -1,8 +1,8 @@
 from django.urls import path
-from . import views
+from .views import *
 urlpatterns = [
-    path('',views.go,name="go"),
-    path('form/',views.accept,name="accept"),
-    path('form/resume/<int:profile_id>/',views.resume,name="resume"),
-    path('form/resume/<int:profile_id>/download_pdf/', views.download_pdf, name='download_pdf'),
+    path('',go,name="go"),
+    path('form/',accept,name="accept"),
+    path('form/resume/<int:profile_id>/',resume,name="resume"),
+    path('form/resume/<int:profile_id>/download_pdf/',download_pdf, name='download_pdf'),
 ]

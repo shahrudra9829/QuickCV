@@ -15,7 +15,7 @@ h1 {
     text-shadow: 4px 5px 7px rgba(0, 0, 0, 0.5);
 }
 
-.formname{
+.formname,.templatename{
     background: linear-gradient(to right, #667eea, #764ba2);
     font-size:40px;
     height: 100px;

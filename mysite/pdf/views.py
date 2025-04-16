@@ -10,6 +10,9 @@ from .form import *
 def go(request):
     return render(request,'pdf/home.html')
 
+def temp_list(request):
+    return render(request,"pdf/dif_formate.html")
+
 def accept(request):
     form = Details()
     if request.method=="POST":

@@ -10,16 +10,27 @@
     <style>
         .formates{ 
             height: auto;
+            width: 200px;
+            margin: 10px;
         }
         .temp_list{
             display: flexbox;
             margin: 10px;
         }
+        .templatename{
+            /* margin-top: 5px; */
+        }
+        p{
+            margin: 15px;
+        }
+        img:hover{
+            scale: 1.05;    
+        }
         
     </style>
 </head>
 <body>
-    <div class="templatename"> Select a template of your choice </div>
+    <div class="templatename"> <p>Select a template of your choice </p></div>
     <section class="temp_list">
         <a href="{% url 'accept' %}"><img src="{% static 'images/resume1.png' %}" class="formates"></a>
     </section>

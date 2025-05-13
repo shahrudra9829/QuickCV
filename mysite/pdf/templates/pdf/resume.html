@@ -29,34 +29,82 @@
     </div>  
     <hr/>
     <div class="section">
-        <p class="section-heading">SUMMARY</p>
-        <p>{{user_profile.summary}}</p>
+        <p class="section-heading">OBJECTIVE</p>
+        <p>{{user_profile.objective}}</p>
     </div>
     <hr/>
-    <div class="section">
-        <p class="section-heading">WORK EXPERIENCE</p>
-        <p>{{user_profile.previous_work}}</p>
-    </div>
-    <hr/>
-    <div class="section">
-        <p class="section-heading">EDUCATION</p>
-        <p>{{user_profile.degree}}</p>
-
-        <ul>
-            <li>{{user_profile.school}}</li>
-            <li>{{user_profile.university}}</li>
-        </ul>
-    </div>
-    <hr/>
+    
     <div class="section">
         <p class="section-heading">SKILLS</p>
-        <p>{{user_profile.skills}}</p>
+        {% for skill in user_profile.skills %}
+            <div style="margin-bottom: 10px;">
+                
+                <ul>
+                    <li>{{ skill  }}</li>
+                </ul>
+            </div>
+        {% endfor %}
     </div>
+    <hr/>
+    {% if user_profile.experience %}
+    <div class="section">
+    <p class="section-heading">WORK EXPERIENCE</p>
+
+        {% for exp in user_profile.experience %}
+            <div style="margin-bottom: 15px;">
+                <table style="width: 100%;">
+                    <tr>
+                        <td style="width: 60%;"><strong>{{ exp.company }}</strong></td>
+                        <td style="text-align: center;width: 40%;text-align: right;"><strong>{{ exp.location }}</strong></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 60%;">{{ exp.designation }}</td>
+                        <td style="text-align: center;width: 40%;text-align: right;">{{ exp.duration }}</td>
+                    </tr>
+                    
+                </table>
+
+                <ul>
+                    {% for role in exp.responsibility%}
+                        <li>{{ role }}</li>
+                    {% endfor %}
+                    
+                </ul>
+                
+            </div>
+        {% endfor %}
+    </div>
+    <hr/>
+    {% endif %}
+
+
+    
+    <div class="section">
+        <p class="section-heading">EDUCATION</p>
+        {% for edu in user_profile.education %}
+            <div style="margin-bottom: 10px;">
+                <table style="width: 100%;">
+                <tr>
+                    <td style="width: 60%;"><strong>{{ edu.degree }}</strong></td>
+                    <td style="text-align: center;width: 40%;text-align: right;"><strong>{{ edu.university }}</strong></td>
+                </tr>
+                <tr>
+                    <td style="width: 60%;">{{ edu.field }}</td>
+                    <td style="text-align: center;width: 40%;text-align: right;">{{ edu.timeperiod }}</td>
+                </tr>
+                
+            </table>
+            </div>
+        {% endfor %}
+    </div>
+    
+    
+    
     <br/>
     <br/>
     {% if not is_pdf %}
     <div class="bttn">
-    <a href="{% url 'download_pdf' user_profile.id %}" class="btn btn-primary">Download PDF</a>
+    <a href="{% url 'download_pdf' %}" class="btn btn-primary">Download PDF</a>
     </div>
     {% endif %}
 

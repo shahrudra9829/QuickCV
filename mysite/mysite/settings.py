@@ -23,11 +23,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-12&*i-rju*_ah2pq1ld!@*_%60)1$y&h$)v=c_j48p8i_(v!k7'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ['quickcv-yqjr.onrender.com', 'localhost', '127.0.0.1']
 
-
+CSRF_TRUSTED_ORIGINS = [
+    'https://quickcv-yqjr.onrender.com',
+    # 'https://*.onrender.com' # You might use a wildcard if you have multiple subdomains on Render and want to trust them all.
+    # Or specific subdomains:
+    # 'https://your-custom-domain.com',
+    # 'https://www.your-custom-domain.com',
+]
 # Application definition
 
 INSTALLED_APPS = [
